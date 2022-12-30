@@ -1,14 +1,14 @@
+import seeTiles from "../../img/map/water.png";
 export default class Game extends Phaser.Scene {
   constructor() {
     super({ key: "Game" });
   }
 
   preload() {
-    this.load.image("see-tiles", "assets/img/map/water.png");
+    this.load.image("see-tiles", seeTiles);
   }
 
   create() {
-
     var map = this.make.tilemap({
       width: 80,
       height: 40,

@@ -1,16 +1,12 @@
 // vite.config.js
 import { defineConfig } from "vite";
+import { resolve, parse } from "path";
 
 export default defineConfig({
   base: "/",
-  root: "src",
-
+  root: resolve(__dirname, "src"),
   // Input file
   entry: "./index.html",
-
-  // Output directory
-  outDir: "dist",
-
   // File patterns to include in the build
   assets: ["src/**/*.png", "src/**/*.css"],
 
@@ -23,6 +19,9 @@ export default defineConfig({
   },
 
   build: {
+    chunkSizeWarningLimit: 1600,
+    outDir: "../dist",
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         app: "/index.html",
@@ -33,15 +32,11 @@ export default defineConfig({
 
         assetFileNames: ({ name }) => {
           if (/\.(gif|jpe?g|png|svg)$/.test(name ?? "")) {
-            return "assets/images/[name]-[hash][extname]";
+            return "assets/img/[name]-[hash][extname]";
           }
-
           if (/\.css$/.test(name ?? "")) {
             return "assets/css/[name]-[hash][extname]";
           }
-
-          // default value
-          // ref: https://rollupjs.org/guide/en/#outputassetfilenames
           return "assets/[name]-[hash][extname]";
         },
       },
