@@ -3,15 +3,16 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   base: "/",
+  root: "src",
 
   // Input file
-  entry: "./public/index.html",
+  entry: "./index.html",
 
   // Output directory
   outDir: "dist",
 
   // File patterns to include in the build
-  assets: ["public/**/*", "src/**/*.css"],
+  assets: ["src/**/*", "src/**/*.css"],
 
   server: {
     port: 3000,
@@ -24,7 +25,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        app: "./public/index.html",
+        app: "./index.html",
       },
     },
   },
