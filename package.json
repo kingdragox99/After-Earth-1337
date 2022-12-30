@@ -14,10 +14,10 @@
     "prettier": "2.8.1",
     "prettier-plugin-tailwindcss": "^0.2.1",
     "tailwindcss": "^3.2.4",
+    "vite-plugin-minify": "^1.5.2",
     "vite": "^4.0.0"
   },
   "dependencies": {
-    "phaser": "^3.55.2",
-    "phaser-animated-tiles": "^2.0.2"
+    "phaser": "^3.55.2"
   }
 }

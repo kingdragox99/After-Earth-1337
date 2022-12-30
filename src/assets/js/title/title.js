@@ -1,19 +1,24 @@
+import button from "../../img/sprite/button.png";
+import earth from "../../img/sprite/earth.png";
+import space from "../../img/background/space.png";
+import logo from "../../img/text/logo.png";
+
 export default class Title extends Phaser.Scene {
   constructor() {
     super({ key: "Title" });
   }
 
   preload() {
-    this.load.spritesheet("button", "assets/img/sprite/button.png", {
+    this.load.spritesheet("button", button, {
       frameWidth: 128,
       frameHeight: 64,
     });
-    this.load.spritesheet("earth", "assets/img/sprite/earth.png", {
+    this.load.spritesheet("earth", earth, {
       frameWidth: 128,
       frameHeight: 128,
     });
-    this.load.image("space", "assets/img/background/space.png");
-    this.load.image("logo", "assets/img/text/logo.png");
+    this.load.image("space", space);
+    this.load.image("logo", logo);
   }
 
   create() {
@@ -46,7 +51,8 @@ export default class Title extends Phaser.Scene {
 
     // add button
     const button = this.add
-      .sprite(0, 0, "button").setScale(1.3)
+      .sprite(0, 0, "button")
+      .setScale(1.3)
       .setInteractive()
       .on("pointerdown", () => {
         this.scene.start("Game");
