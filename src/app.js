@@ -9,6 +9,9 @@ var config = {
   width: 1280,
   height: 640,
   scene: [Title, Game],
+  render: {
+    pixelArt: true,
+  },
 };
 
 var game = new Phaser.Game(config);
