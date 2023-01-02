@@ -1,7 +1,7 @@
 import button from "../../img/sprite/button.png";
 import earth from "../../img/sprite/earth.png";
+import logo from "../../img/sprite/logo.png";
 import space from "../../img/background/space.png";
-import logo from "../../img/text/logo.png";
 
 export default class Title extends Phaser.Scene {
   constructor() {
@@ -17,8 +17,11 @@ export default class Title extends Phaser.Scene {
       frameWidth: 128,
       frameHeight: 128,
     });
+    this.load.spritesheet("logo", logo, {
+      frameWidth: 512,
+      frameHeight: 128,
+    });
     this.load.image("space", space);
-    this.load.image("logo", logo);
   }
 
   create() {
@@ -35,7 +38,7 @@ export default class Title extends Phaser.Scene {
           37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
         ],
       }),
-      frameRate: 4,
+      frameRate: 6,
       repeat: -1,
     });
 
@@ -46,7 +49,18 @@ export default class Title extends Phaser.Scene {
     Phaser.Display.Align.In.Center(earth, this.add.zone(640, 320, 1280, 640));
 
     // add logo
-    const logo = this.add.image(0, 0, "logo");
+    this.anims.create({
+      key: "blink",
+      frames: this.anims.generateFrameNumbers("logo", {
+        frames: [0, 1],
+      }),
+      frameRate: 0.9,
+      repeat: -1,
+    });
+
+    const logo = this.add.sprite(0, 0);
+    logo.setScale(1.5);
+    logo.play("blink");
     Phaser.Display.Align.In.Center(logo, this.add.zone(640, 150, 1280, 640));
 
     // add button
