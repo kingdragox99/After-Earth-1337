@@ -11,7 +11,7 @@ to defend your city against waves of monster attacks;
 
 The pollution bar if it is at max your city dies turn after turn!
 The energy bar if it falls to 0% your towers and buildings will not be able to function anymore!
-Your life bar if it is at 0 it's game ove!
+Your life bar if it is at 0 it's game over!
 
 ## The resources of the game:
 
